@@ -12,14 +12,14 @@ int main(int argc, char *input[]) {
             for (int i=0; i< sizeof(answer); i++) {
                 if (strchr(answer, guess[i]) != NULL) {
                     if (guess[i] == answer[i]) {
-                        printf("%c", guess[i]); //green
+                        printf("\033[32m%c\033[0m", guess[i]); //green
                     }
                     else {
-                        printf("(%c)", guess[i]); //yellow
+                        printf("\033[33m%c\033[0m", guess[i]); //yellow
                     }
                 }
                 else {
-                    printf("|%c|", guess[i]); //red
+                    printf("\033[31m%c\033[0m", guess[i]);
                 }
             }
             puts("");
