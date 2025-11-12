@@ -1,6 +1,21 @@
 #include <stdio.h>
 #include <string.h> 
 #include <stdlib.h>
+#include <stdbool.h>
+
+bool checkCorrectLengthconst (char *correctWord, const char *userGuess) {
+
+    int guessLength = strlen(correctWord);
+    int correctWordLength = strlen(correctWord);
+
+    if (guessLength == correctWordLength) {
+        return true;
+    }
+
+    else {
+        return false;
+    }
+}
 
 void checkWordPlacement(const char *correctWord, const char *userGuess) {
     
