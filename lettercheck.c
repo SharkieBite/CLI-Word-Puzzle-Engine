@@ -19,7 +19,7 @@ int main(int argc, char *input[]) {
                     }
                 }
                 else {
-                    printf("|%c|", guess[i]);
+                    printf("|%c|", guess[i]); //red
                 }
             }
             puts("");
