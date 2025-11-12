@@ -57,8 +57,9 @@ void checkFullWordPlacement(const char *correctWord, const char *userGuess) {
     }
 
     for (int i = 0; i < guessLength; i++) {
-        printf("%c ", (char)checkedGuess[i]); // Print each element followed by a space
+        printf("%c ", (char)checkedGuess[i]); 
     }
+    printf("\n");
 
 }
 
