@@ -9,63 +9,80 @@ Purpose: To implement a code to check if the word that the user enters is a word
 #include <stdio.h>
 #include <stdbool.h>
 
-int main (){
+/*
+Purpose: To create a help flag for this section of the code.
+*/
+void printHelp(){
+    printf("Usage: Checking guess against valid list of words.\n");
+    printf("Validates a guessed word, based on current level.\n");
+    printf("Valid if:\n");
+    printf("  - In normal textfile dictionary.\n");
+    printf("  - In unique word textfile dictionary.\n");
+}//end void printHelp
+
+bool checkWord(int level, char *guess){
 
     //variables
-    char option, word[10], guess[10];
-    char *fileChoice = NULL;
-    bool exists = false;
+    char word[10], *fileMain = NULL, *fileBank = NULL;
+    bool found = false;
 
-    //menu
-    printf("Word Length Options:\na. 5 letter word\nb. 6 letter word\nc. 7 letter word\nd. 8 letter word");
-
-    //word length options
-    do{    
-        printf("\nWhich word length option would you like (a-d): ");
-        scanf(" %c", &option);
-        if (option == 'a'){
-            fileChoice = "WordFiles/5word.txt";
-        }
-        else if (option == 'b'){
-            fileChoice = "WordFiles/6word.txt";
-        }
-        else if (option == 'c'){
-            fileChoice = "WordFiles/7word.txt";
-        }
-        else if (option == 'd'){
-            fileChoice = "WordFiles/8word.txt";
-        }
-        else{
-            printf("\nInvalid input, must be a, b, c, or d.");
-            scanf("%c", &option);
-        }
-    }while(fileChoice == NULL);
-
-    //opening file
-    FILE *file;
-    file = fopen(fileChoice, "r");
-    if (file == NULL){
-        printf("Error");
-        return EXIT_FAILURE;
+    //based on level, choosing the right textfiles
+    if (level == 1){
+        fileMain = "WordFiles/5word.txt";
+        fileBank = "WordFiles/5wordbank.txt";
     }
-
-    printf("\nEnter word: ");
-    scanf("%9s", guess);
-
-    while (fscanf(file, "%9s", word) == 1 && !exists){
-        if (strcmp(word, guess) == 0){
-            exists = true;
-        }
+    else if(level == 2){
+        fileMain = "WordFiles/6word.txt";
+        fileBank = "WordFiles/6wordbank.txt";
     }
-    
-    fclose(file);
-
-    if (!exists){
-        printf("\nNot in word list!\n");
+    else if(level == 3){
+        fileMain = "WordFiles/7word.txt";
+        fileBank = "WordFiles/7wordbank.txt";
+    }
+    else if(level == 4){
+        fileMain = "WordFiles/8word.txt";
+        fileBank = "WordFiles/8wordbank.txt";
     }
     else{
-        printf("\nWorks\n");
+        fprintf(stderr, "Error: Invalid level %d. Must be 1–4.\n", level);
+        return false;
     }
-    return EXIT_SUCCESS;
+
+
+    //going through main dictionary of files
+    file = fopen(fileMain, "r");
+    if (file == NULL){
+        fprintf(stderr, "Error: Cannot open main textfile: %s\n", fileMain);
+        return false;
+    }
+
+    while (fscanf(file, "%9s", word) == 1 && !found){
+        if (strcmp(word, guess) == 0) {
+            found = true;
+        }
+    }//end while loop
+    fclose(file);
+
+    if (found){
+        return true;
+    }
+
+    //second dictionary of unique words
+    file = fopen(fileBank, "r");
+    if (file == NULL){
+        fprintf(stderr, "Error: Cannot open wordbank file: %s\n", fileBank);
+        return false;
+    }
+
+    while (fscanf(file, "%9s", word) == 1 && !found) {
+        if (strcmp(word, guess) == 0) {
+            found = true;
+        }
+    }//end while loop
+
+    fclose(file);
+    return found;
+
+
 
 }//end main
