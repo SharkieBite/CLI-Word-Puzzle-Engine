@@ -1,25 +1,43 @@
-name: build Wordle game
+name: CI - Test wordle Utility
 
-on:
+on:							
   push:
-    branches: [ "main" ]
+    branches: [ "main" ]			
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  build:						
+    runs-on: ubuntu-latest			
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4		
 
-      - name: Run Tests
-        run: |
-          set +e
-          ./test_script > test_results.txt 2>&1
-          cat test_results.txt
-        shell: bash
+      - name: build playtest
+        run: make playtest
 
+      - name: upload binary			
+        uses: actions/upload-artifact@v4	
+        with:
+          name: playtest	
+          path: ./playtest
+    
+  test:						
+    runs-on: ubuntu-latest			
+    steps:
+      - uses: actions/checkout@v4		
+
+      - name: Run Tests		
+        run:  make playtest; ./test_script >test_results.txt; gcov playtest-playWordle.c
       - name: Upload Test Results
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+      
+        uses: actions/upload-artifact@v4	
         with:
-          name: Test Results
+          name: Test Results		
           path: ./test_results.txt
+
+      - name: Upload Test Results 1
+        if: ${{ always() }}
+        
+        uses: actions/upload-artifact@v4	
+        with:
+          name: gcov playWordle.c
+          path: ./playWordle.c.gcov
