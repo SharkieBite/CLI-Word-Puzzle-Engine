@@ -1,3 +1,5 @@
+# Words Game
+
 Purpose: To implement a game, inspired by New Yorks Time game, Wordle. 
 
 Names:
