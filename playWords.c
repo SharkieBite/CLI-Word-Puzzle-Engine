@@ -185,41 +185,35 @@ bool checkWord(int level, char *guess){ //Checks if guess is valid word
 int checkLetter(char *guess, char *answer, int *attempts, int level) { //Checks if letters match
     int checker = 1;
     // printf("%s\n", answer);
-    if (strlen(guess) == level) {
-        *attempts -= 1;
-        for (int i=0; i< level; i++) {
-            if (strchr(answer, guess[i]) != NULL) {
-                if (guess[i] == answer[i]) {
-                    printf("\033[32m%c\033[0m", guess[i]); //green
-                }
-                else {
-                    printf("\033[33m%c\033[0m", guess[i]); //yellow
-                    checker = 0;
-                }
+    // if (strlen(guess) == level) {
+    *attempts -= 1;
+    for (int i=0; i< level; i++) {
+        if (strchr(answer, guess[i]) != NULL) {
+            if (guess[i] == answer[i]) {
+                printf("\033[32m%c\033[0m", guess[i]); //green
             }
             else {
-                printf("\033[31m%c\033[0m", guess[i]); //red
+                printf("\033[33m%c\033[0m", guess[i]); //yellow
                 checker = 0;
             }
-            // printf(" guess: %c, answer: %c\n", guess[i], answer[i]);
         }
-        puts("");
-        if (checker == 1) {
-            puts("You win!");
-            exit(0);
+        else {
+            printf("\033[31m%c\033[0m", guess[i]); //red
+            checker = 0;
         }
-        else if (*attempts == 0) { 
-            puts("You are out of attempts");
-            printf("Answer was \033[32m%s\033[0m\n", answer);
-            return 0;
-        }
-        //if (strcmp(guess, answer) == 0) {
-        //}
+        // printf(" guess: %c, answer: %c\n", guess[i], answer[i]);
     }
-    // else {
-    //     puts("Invalid word length");
+    puts("");
+    if (checker == 1) {
+        puts("You win!");
+        exit(0);
+    }
+    else if (*attempts == 0) { 
+        puts("You are out of attempts");
+        printf("Answer was \033[32m%s\033[0m\n", answer);
+        return 0;
+    }
     // }
-    // return 0;
 }
 
 // bool isNewGuess(const char *word, char oldGuesses[][MAX_WORD_LENGTH], int guessCount) {
