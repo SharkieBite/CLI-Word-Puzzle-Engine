@@ -1,2 +1,4 @@
-play: checkletter.c chooseWord.c checkWord.c checkRepeat.c checkplacement.c playWordle.c
-	gcc -o play checkletter.c chooseWord.c checkWord.c checkRepeat.c checkplacement.c playWordle.c
+play: playWordle.c
+	gcc -o play playWordle.c
+playtest: playWordle.c
+	gcc -o playtest --coverage playWordle.c

@@ -60,7 +60,7 @@ int main(int argc, char *input[]) {
         if (checkWord(level-4, guess) == true) {
             checkLetter(guess, answer, attempts, level);
             if (*attempts == 0) {
-                return -1;
+                return 0;
             }
         }
         else {
@@ -196,15 +196,15 @@ int checkLetter(char *guess, char *answer, int *attempts, int level) { //Checks 
         else if (*attempts == 0) { 
             puts("You are out of attempts");
             printf("Answer was \033[32m%s\033[0m\n", answer);
-            return -1;
+            return 0;
         }
         //if (strcmp(guess, answer) == 0) {
         //}
     }
-    else {
-        puts("Invalid word length");
-    }
-    return 0;
+    // else {
+    //     puts("Invalid word length");
+    // }
+    // return 0;
 }
 
 // bool isNewGuess(const char *word, char oldGuesses[][MAX_WORD_LENGTH], int guessCount) {
@@ -216,34 +216,3 @@ int checkLetter(char *guess, char *answer, int *attempts, int level) { //Checks 
 //     }
 //     return true; 
 // }
-
-// char *trim(char *s) {
-//     int i = 0;
-//     char *copy = malloc(strlen(s) + 1);
-//     strcpy(copy, s);
-//     char *start = copy;
-//     char *end = copy + strlen(copy) - 1;
-
-//     while (*start == ' ') {
-//         start++;
-//     }
-
-//     while (end >= start && *end == ' ') {
-//         end--;
-//     }
-
-//     *(end+1) = '\0';
-
-//     return start;
-// }
-
-char * to_lower(char *string) {
-    int i=0;
-    while (string[i] != '\0') {
-        if ('A' <= string[i] && string[i] <= 'Z') {
-            string[i] -= ('A' - 'a');
-        }
-        i++;
-    }
-    return string;
-}

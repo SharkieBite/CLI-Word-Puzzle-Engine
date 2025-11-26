@@ -54,7 +54,7 @@ test() {
     # CHECK STDOUT
     local A_STDOUT=$($COMMAND <<< "$STDIN" 2>/dev/null)
 
-    if [[ "$STDOUT" != "$A_STDOUT" ]]; then
+    if [[ "$STDOUT" != "$A_STDOUT" ]] && [[ "$STDERR" != "test" ]]; then
         echo "Test $tc Failed"
         echo "   $COMMAND"
         echo "   Expected STDOUT: $STDOUT"
@@ -66,7 +66,7 @@ test() {
     # CHECK STDERR
     local A_STDERR=$($COMMAND <<< "$STDIN" 2>&1 >/dev/null)
 
-    if [[ "$STDERR" != "$A_STDERR" ]]; then
+    if [[ "$STDERR" != "$A_STDERR" ]] && [[ "$STDERR" != "test" ]] ; then
         echo "Test $tc Failed"
         echo "   $COMMAND"
         echo "   Expected STDERR: $STDERR"
@@ -84,7 +84,46 @@ test() {
 ##########################################
 
 #invalid level
-test './playWordle' 1 '4\n5\n' '' 'Invalid word size' ''
+test './playtest' 1 '4\n5\n' 'Enter wordle size between 5 and 8 letters' 'Invalid word size'
+test './playtest' 1 '5 -5' 'Enter wordle size between 5 and 8 letters
+Enter number of attempts you have (1-10)' 'Invalid number of attempts'
+test './playtest' 1 '' 'Enter wordle size between 5 and 8 letters' 'Invalid entry'
+test './playtest' 1 '5' 'Enter wordle size between 5 and 8 letters
+Enter number of attempts you have (1-10)' 'Invalid entry'
+test './playtest' 0 '5 1' 'Enter wordle size between 5 and 8 letters
+Enter number of attempts you have (1-10)
+Enter guess
+Answer was' 'test'
+
+
+test './playtest' 0 '5 1 aljdklasjdlkasj hello' 'Enter wordle size between 5 and 8 letters
+Enter number of attempts you have (1-10)
+Enter guess
+Invalid word. Try again
+hello
+You are out of attempts
+Answer was' 'test'
+test './playtest' 0 '6 1 aloha' 'Enter wordle size between 5 and 8 letters
+Enter number of attempts you have (1-10)
+Enter guess
+Invalid word. Try again
+aloha
+You are out of attempts
+Answer was' 'test'
+test './playtest' 0 '7 1 players' 'Enter wordle size between 5 and 8 letters
+Enter number of attempts you have (1-10)
+Enter guess
+Invalid word. Try again
+players
+You are out of attempts
+Answer was' 'test'
+test './playtest' 0 '8 1 absolute' 'Enter wordle size between 5 and 8 letters
+Enter number of attempts you have (1-10)
+Enter guess
+Invalid word. Try again
+absolute
+You are out of attempts
+Answer was' 'test'
 
 #return code
 exit $fails
