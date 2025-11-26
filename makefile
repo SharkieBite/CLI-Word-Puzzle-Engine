@@ -1,4 +1,4 @@
-play: playWordle.c
-	gcc -o play playWordle.c
-playtest: playWordle.c
-	gcc -o playtest --coverage playWordle.c
+play: playWords.c
+	gcc -o play playWords.c
+playtest: playWords.c
+	gcc -o playtest --coverage playWords.c
