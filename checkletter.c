@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "checkletter.h"
+int help();
+int checkLetter(char *guess, char *answer, int *attempts, int level);
 
 int main(int argc, char *input[]) {
     char *answer = "hello";
