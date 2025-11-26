@@ -1,0 +1,21 @@
+name: build Wordle game
+
+on:							
+  push:
+    branches: [ "main" ]			
+
+jobs:
+  build:						
+    runs-on: ubuntu-latest			
+    steps:
+      - uses: actions/checkout@v4		
+
+      - name: build Wordle			
+        run: gcc -o playWordle playWordle.c		
+
+      - name: upload binary			
+        uses: actions/upload-artifact@v4	
+        with:
+          name: PlayWordle Game	
+          path: ./playWordle				
+
