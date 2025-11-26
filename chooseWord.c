@@ -47,4 +47,6 @@ int main() {
     if (word != NULL)
         printf("word: %s\n", word);
     return 0;
+    help();
+
 }
