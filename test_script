@@ -124,6 +124,17 @@ Invalid word. Try again
 absolute
 You are out of attempts
 Answer was' 'test'
+test './playtest --help' 0 '' 'Usage: Help Function
+Welcome to Words, a level-based guessing game.
+You will:
+  - Enter a word size between 5 and 8 letters.
+  - Enter the number of attempts you prefer (1–10).
+  - Guess words of the correct length.
+  - Words must exist in the dictionary.
+  - Colours:
+       Green  = correct letter and position
+       Yellow = letter exists but wrong position in word
+       Red    = letter does not exist in word' ''
 
 #return code
 exit $fails
