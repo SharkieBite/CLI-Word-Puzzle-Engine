@@ -9,6 +9,9 @@ Purpose: To implement a code to check if the word that the user enters is a word
 #include <stdio.h>
 #include <stdbool.h>
 
+void printHelp();
+bool checkWord(int level, char *guess);
+
 /*
 Purpose: To ensure help flag works and functions work accordingly to intention.
 */
