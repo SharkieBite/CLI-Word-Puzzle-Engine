@@ -5,6 +5,12 @@
 #define MAX_GUESSES 6        
 #define MAX_WORD_LENGTH 6    
 
+void help(){
+
+	puts("Checks if the current guess is a repeat of any previous guesses");\
+	puts("Usage: takes the current guess and a 2D array holding all the previous guesses and checks none of them are the same");
+}
+
 int guessCount = 0;
 
 
