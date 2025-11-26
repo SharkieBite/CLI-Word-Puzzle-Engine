@@ -1,21 +1,25 @@
 name: build Wordle game
 
-on:							
+on:
   push:
-    branches: [ "main" ]			
+    branches: [ "main" ]
 
 jobs:
-  build:						
-    runs-on: ubuntu-latest			
+  test:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4		
+      - uses: actions/checkout@v4
 
-      - name: build Wordle			
-        run: gcc -o playWordle playWordle.c		
+      - name: Run Tests
+        run: |
+          set +e
+          ./test_script > test_results.txt 2>&1
+          cat test_results.txt
+        shell: bash
 
-      - name: upload binary			
-        uses: actions/upload-artifact@v4	
+      - name: Upload Test Results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
         with:
-          name: PlayWordle Game	
-          path: ./playWordle				
-
+          name: Test Results
+          path: ./test_results.txt

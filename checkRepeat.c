@@ -17,4 +17,3 @@ bool isNewGuess(const char *word, char oldGuesses[][MAX_WORD_LENGTH], int guessC
     }
     return true; 
 }
-
