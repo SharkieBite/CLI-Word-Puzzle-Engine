@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v4		
 
       - name: Run Tests		
-        run:  make playtest; ./test_script >test_results.txt; gcov playtest-playWordle.c
+        run:  make playtest; ./test_script >test_results.txt; gcov playtest-playWords.c
       - name: Upload Test Results
         if: ${{ always() }}
       
@@ -39,5 +39,5 @@ jobs:
         
         uses: actions/upload-artifact@v4	
         with:
-          name: gcov playWordle.c
-          path: ./playWordle.c.gcov
+          name: gcov playWords.c
+          path: ./playWords.c.gcov
