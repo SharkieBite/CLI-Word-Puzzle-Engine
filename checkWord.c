@@ -10,6 +10,42 @@ Purpose: To implement a code to check if the word that the user enters is a word
 #include <stdbool.h>
 
 /*
+Purpose: To ensure help flag works and functions work accordingly to intention.
+*/
+int main(int argc, char *argv[]){
+    //variables
+    int level;
+    char guess[16];
+
+    //calling help flag
+    if (argc > 1 && strcmp(argv[1], "--help") == 0){
+        printHelp();
+        return 0;
+    }
+
+    //levels
+    printf("Enter level (1-4): ");
+    if (scanf("%d", &level) != 1) {
+        fprintf(stderr, "Invalid input.\n");
+        return 1;
+    }
+
+    //guess
+    printf("Enter guess: ");
+    scanf("%15s", guess);
+
+    // test checkWord
+    if (checkWord(level, guess)){
+        printf("VALID WORD\n");
+    }
+    else {
+        printf("INVALID WORD\n");
+    }
+
+    return 0;
+}//end main
+
+/*
 Purpose: To create a help flag for this section of the code.
 */
 void printHelp(){
@@ -20,11 +56,17 @@ void printHelp(){
     printf("  - In unique word textfile dictionary.\n");
 }//end void printHelp
 
+/*
+Purpose: To access the textfiles according to the user's level in Words. As well, validate if the guess belongs to the dictionary we created.
+Parameters: Level to see which text files to open and the user's guess. 
+Return: true or false, depending on if guess is apart of the dictionary.
+*/
 bool checkWord(int level, char *guess){
 
     //variables
     char word[10], *fileMain = NULL, *fileBank = NULL;
     bool found = false;
+    FILE *file;
 
     //based on level, choosing the right textfiles
     if (level == 1){
