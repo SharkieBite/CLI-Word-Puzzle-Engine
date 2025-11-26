@@ -44,9 +44,12 @@ char *chooseWord(int number) {
 
 int main() {
     char *word = chooseWord(5);
-    if (word != NULL)
+    if (word != NULL) {
         printf("word: %s\n", word);
+    }
+    if (argc >= 2 && strcmp(input[1], "--help") == 0) {
+        help();
+        return 0;
+    }
     return 0;
-    help();
-
 }

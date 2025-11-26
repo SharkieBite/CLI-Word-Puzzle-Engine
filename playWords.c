@@ -16,6 +16,22 @@ char *chooseWord(int number);
 bool checkWord(int level, char *guess);
 int checkLetter(char *guess, char *answer, int *attempts, int level);
 char * to_lower(char *string);
+int help();
+
+int help() {
+    printf("Usage: Help Function\n");
+    printf("Welcome to Words, a level-based guessing game.\n");
+    printf("You will:\n");
+    printf("  - Enter a word size between 5 and 8 letters.\n");
+    printf("  - Enter the number of attempts you prefer (1–10).\n");
+    printf("  - Guess words of the correct length.\n");
+    printf("  - Words must exist in the dictionary.\n");
+    printf("  - Colours:\n");
+    printf("       Green  = correct letter and position\n");
+    printf("       Yellow = letter exists but wrong position in word\n");
+    printf("       Red    = letter does not exist in word\n");
+    return 0;
+}
 
 int main(int argc, char *input[]) {
     int level;
@@ -25,18 +41,8 @@ int main(int argc, char *input[]) {
     char *guess;
 
     if (argc > 1 && strcmp(input[1], "--help") == 0){
-        printf("Usage: Help Function\n");
-        printf("Welcome to Words, a level-based guessing game.\n");
-        printf("You will:\n");
-        printf("  - Enter a word size between 5 and 8 letters.\n");
-        printf("  - Enter the number of attempts you prefer (1–10).\n");
-        printf("  - Guess words of the correct length.\n");
-        printf("  - Words must exist in the dictionary.\n");
-        printf("  - Colours:\n");
-        printf("       Green  = correct letter and position\n");
-        printf("       Yellow = letter exists but wrong position in word\n");
-        printf("       Red    = letter does not exist in word\n");
-    return 0;  
+        help();
+        return 0;  
     }
 
     puts("Enter wordle size between 5 and 8 letters");

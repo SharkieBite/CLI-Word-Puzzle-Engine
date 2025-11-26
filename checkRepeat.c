@@ -24,7 +24,9 @@ bool isNewGuess(const char *word, char oldGuesses[][MAX_WORD_LENGTH], int guessC
     return true; 
 }
 
-int main(){
-
-	help();
+int main(int argc, char *input[]){
+    if (argc >= 2 && strcmp(input[1], "--help") == 0) {
+        help();
+        return 0;
+    }
 }
