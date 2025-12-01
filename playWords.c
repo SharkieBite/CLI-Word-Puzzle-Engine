@@ -66,10 +66,6 @@ int main(int argc, char *input[]) {
     }
 
     answer = chooseWord(level);
-    // to_lower(answer);
-    // for (int i=0; i<strlen(answer); i++) {
-    //     answer[i] = tolower(answer[i]);
-    // }
 
     puts("Enter guess");
     while (1) {
@@ -77,7 +73,7 @@ int main(int argc, char *input[]) {
             printf("Answer was \033[32m%s\033[0m\n", answer);
             return 0;
         }
-        // to_lower(guess);
+
         if (checkWord(level-4, guess) == true) {
             checkLetter(guess, answer, attempts, level);
             if (*attempts == 0) {
@@ -190,8 +186,7 @@ bool checkWord(int level, char *guess){ //Checks if guess is valid word
 
 int checkLetter(char *guess, char *answer, int *attempts, int level) { //Checks if letters match
     int checker = 1;
-    // printf("%s\n", answer);
-    // if (strlen(guess) == level) {
+    //printf("%s\n", answer);
     *attempts -= 1;
     for (int i=0; i< level; i++) {
         if (strchr(answer, guess[i]) != NULL) {
