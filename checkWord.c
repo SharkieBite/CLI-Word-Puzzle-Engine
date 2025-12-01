@@ -119,7 +119,7 @@ bool checkWord(int level, char *guess){
         return false;
     }
 
-    while (fscanf(file, "%9s", word) == 1 && !found) {
+    while (fscanf(file, "%9s", word) == 1 && !found){
         if (strcmp(word, guess) == 0) {
             found = true;
         }
@@ -127,7 +127,4 @@ bool checkWord(int level, char *guess){
 
     fclose(file);
     return found;
-
-
-
 }//end main
