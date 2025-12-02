@@ -7,3 +7,6 @@ char *chooseWord(int number);
 bool checkWord(int level, char *guess);
 int checkLetter(char *guess, char *answer, int *attempts, int level);
 bool isNewGuess(const char *word, char oldGuesses[][MAX_WORD_LENGTH], int guessCount);
+void getUserDifficulty();
+void displayMainMenu();
+void playGame(int userAttempts);

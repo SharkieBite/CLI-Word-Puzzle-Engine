@@ -33,6 +33,9 @@ int help() {
     return 0;
 }
 
+
+/*
+
 int main(int argc, char *input[]) {
     int level;
     int lives = 0;
@@ -86,6 +89,8 @@ int main(int argc, char *input[]) {
     }
 
 }
+
+*/
 
 char *chooseWord(int number) { //Chooses word with "number" amount of letters
     static char random_line[MAX_LINE_LENGTH];  // static so it persists after return
@@ -154,6 +159,12 @@ bool checkWord(int level, char *guess){ //Checks if guess is valid word
     }
 
     while (fscanf(file, "%9s", word) == 1 && !found){
+
+        for (int i=0; word[i]; i++) {
+
+            word[i] = tolower(word[i]);
+        }
+
         if (strcmp(word, guess) == 0) {
             found = true;
         }
@@ -205,11 +216,15 @@ int checkLetter(char *guess, char *answer, int *attempts, int level) { //Checks 
         // printf(" guess: %c, answer: %c\n", guess[i], answer[i]);
     }
     puts("");
+
+    /*
     if (checker == 1) {
         puts("You win!");
-        exit(0);
+        //exit(0);
     }
-    else if (*attempts == 0) { 
+
+    */
+    if (*attempts == 0) { 
         puts("You are out of attempts");
         printf("Answer was \033[32m%s\033[0m\n", answer);
         return 0;
