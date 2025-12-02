@@ -8,12 +8,7 @@ Purpose: The main to implement our indiviual functions as well as the combining 
 #include <stdbool.h>
 #include <time.h>
 #include <ctype.h>
-#include "playWordle.h"
-
-int main(){
-    printf("Hello");
-}
-<<<<<<< HEAD
+#include "playWords.h"
 
 
 /*
@@ -223,5 +218,3 @@ int checkLetter(char *guess, char *answer, int *attempts, int level) { //Checks 
 //     }
 //     return true; 
 // }
-=======
->>>>>>> 698f404035223ea20e23a39a7e1cea8bb40ea6ad
