@@ -83,8 +83,8 @@ void displayMainMenu() {
     //Determines if the user's menu selection input has encountered an error
     if (scanf("%d", &userMenuSelection) != 1) {
 
-            printf("ERROR\n");
-            exit(1);
+        printf("ERROR\n");
+        exit(1);
     }
 
     //Determines if the user's menu selection input has selected option one
@@ -235,8 +235,6 @@ void playGame(int userAttempts) {
                 guess[i] = tolower(guess[i]);
             }
 
-            // Check dictionary (pass wordLength - 4 for index 1,2,3,4)
-
             //Determines if the check word function is equal to true by calling it
             if (checkWord(wordLength - 4, guess) == true) {
 
@@ -279,15 +277,12 @@ void playGame(int userAttempts) {
                         break;
                     }
 
-
                     //Defaults to this statement if a selection is not made
                     else {
 
                         exit(1);
                     }
                 }
-
-                // --- LOSE LOGIC ---
 
                 //Determines if the number of attempts is equal to zero
                 if (lives == 0) {
@@ -313,15 +308,9 @@ void playGame(int userAttempts) {
     printf("You beat all levels\n");
 }
 
-
-
-
-
-
-
+//Defines the main function, that the user uses
 int main(int argc, char *argv[]) {
 
+    //Calls the welcome function when the program is lanuched
     displayWelcome();
-    //getUserDifficulty();
-
 }

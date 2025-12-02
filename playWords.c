@@ -1,37 +1,19 @@
+/*
+Sriha Kanthasamy 400571386, Michael Mondaini 400591695, Sabrina Leung 400575507, Axell Panganiban, 400588161
+Purpose: The main to implement our indiviual functions as well as the combining factors for the execuation of our game, Words.
+*/
 #include <stdio.h>
 #include <string.h> 
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
 #include <ctype.h>
+#include "playWordle.h"
 
-// #include "playWordle.h"
-// #include "checkletter.h"
-
-#define MAX_GUESSES 6        
-#define MAX_WORD_LENGTH 6    
-#define MAX_LINE_LENGTH 16
-
-char *chooseWord(int number);
-bool checkWord(int level, char *guess);
-int checkLetter(char *guess, char *answer, int *attempts, int level);
-char * to_lower(char *string);
-int help();
-
-int help() {
-    printf("Usage: Help Function\n");
-    printf("Welcome to Words, a level-based guessing game.\n");
-    printf("You will:\n");
-    printf("  - Enter a word size between 5 and 8 letters.\n");
-    printf("  - Enter the number of attempts you prefer (1–10).\n");
-    printf("  - Guess words of the correct length.\n");
-    printf("  - Words must exist in the dictionary.\n");
-    printf("  - Colours:\n");
-    printf("       Green  = correct letter and position\n");
-    printf("       Yellow = letter exists but wrong position in word\n");
-    printf("       Red    = letter does not exist in word\n");
-    return 0;
+int main(){
+    printf("Hello");
 }
+<<<<<<< HEAD
 
 
 /*
@@ -241,3 +223,5 @@ int checkLetter(char *guess, char *answer, int *attempts, int level) { //Checks 
 //     }
 //     return true; 
 // }
+=======
+>>>>>>> 698f404035223ea20e23a39a7e1cea8bb40ea6ad

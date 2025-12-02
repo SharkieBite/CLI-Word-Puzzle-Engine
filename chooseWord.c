@@ -1,3 +1,8 @@
+/*
+Sabrina Leung 
+400575507
+Purpose: code to choose the a word from the appropiate file for the user to guess
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,13 +11,7 @@
 
 #define MAX_LINE_LENGTH 16
 
-void help(){
-
-	puts("Opens the selected word file to choose a words to guess");
-	puts("Usage: takes the number of letters in the word, and opens the appropriate file and selects a word at random");
-	puts("Example: chooseWord(5)	opens 5word.txt and chooses a letter");
-}
-
+////this function that the number of word and opens the coresponding file, chooses a word and returns it.
 char *chooseWord(int number) {
     static char random_line[MAX_LINE_LENGTH];  // static so it persists after return
     char line[MAX_LINE_LENGTH];
@@ -41,16 +40,4 @@ char *chooseWord(int number) {
     random_line[strcspn(random_line, "\n")] = '\0';
 
     return random_line;
-}
-
-int main() {
-    char *word = chooseWord(5);
-    if (word != NULL) {
-        printf("word: %s\n", word);
-    }
-    if (argc >= 2 && strcmp(input[1], "--help") == 0) {
-        help();
-        return 0;
-    }
-    return 0;
 }
