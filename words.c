@@ -78,8 +78,8 @@ void displayMainMenu() {
     int userSubMenuSelection = 0;
 
     //Outputs the main menu text for selecting which sub-menu
-    puts("\x1b[90m|\x1b[0m     \x1b[1m\x1b[37mMain Menu      \x1b[0m\x1b\x1b[90m|\x1b[0m\n━━━━━━━━━━━━━━━━━━━━━━\x1b[0m\n\x1b[34m[1]\x1b[0m: Start Game\n\x1b[34m[2]\x1b[0m: View Game Credits\n\x1b[34m[3]\x1b[0m: Quit");
-
+    puts("\x1b[90m|\x1b[0m     \x1b[1m\x1b[37mMain Menu      \x1b[0m\x1b\x1b[90m|\x1b[0m\n━━━━━━━━━━━━━━━━━━━━━━\x1b[0m\n\x1b[34m[1]\x1b[0m: Start Game\n\x1b[34m[2]\x1b[0m: View Game Credits\n\x1b[34m[3]\x1b[0m: --help\n\x1b[34m[4]\x1b[0m: Quit");
+    
     //Determines if the user's menu selection input has encountered an error
     if (scanf("%d", &userMenuSelection) != 1) {
 
@@ -125,8 +125,47 @@ void displayMainMenu() {
         }
     }
     
+
     //Determines if the user's menu selection input has selected option three
     else if (userMenuSelection == 3) {
+
+        //Outputs --help flags
+        puts("\x1b[90m|\x1b[0m                            \x1b[1m\x1b[37m--help                              \x1b[0m\x1b\x1b[90m|\x1b[0m\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+        puts("Welcome to Words, a level-based guessing game.");
+        puts("Main menu will be displayed");
+        puts("Options: ");
+        puts("      [1] Start Game                  Starts the game");
+        puts("      [2] View Game Credits           Display game credits");
+        puts("      [3] --help                      Shows this help message");
+        puts("      [4] Quit                        Quits the game");
+        puts(" ");
+        puts("Select difficulty menu will be display if [1] is chosen");
+        puts("Options: ");
+        puts("      [1] Easy                        Starts level 1 on easy");
+        puts("      [2] Medium                      Starts level 1 on medium");
+        puts("      [3] Hard                        Starts level 1 on hard");
+        puts(" ");
+
+        //Outputs the back to main menu option to the user
+        printf("\x1b[34m[1]\x1b[0m: Back to Main Menu\n");
+
+        //Determines if the user's sub menu selection input has encountered an error
+        if (scanf("%d", &userSubMenuSelection) != 1) {
+
+            //Exits the program with code one
+            exit(1);
+        }
+
+        //Determines if the user's sub menu selection input has selected option one
+        else if (userSubMenuSelection == 1) {
+
+            //Calls the user main menu function again to revert back
+            displayMainMenu();
+        }
+    }
+
+    //Determines if the user's menu selection input has selected option three
+    else if (userMenuSelection == 4) {
 
         //Outputs that the program is now exiting
         puts("\x1b[90m|\x1b[0m     \x1b[1m\x1b[37mMain Menu      \x1b[0m\x1b\x1b[90m|\x1b[0m\n━━━━━━━━━━━━━━━━━━━━━━\x1b[0m\nQuitting Game.");
