@@ -1,3 +1,8 @@
+/* Michael Mondaini, 400591695, December 3rd, 2025
+*
+* Description: Contains the main program that calls the needed functions, with the proper flags. This file is coded in C.
+*/
+
 //Imports the necessary modules needed for the program
 #include <stdio.h>
 #include <string.h>
