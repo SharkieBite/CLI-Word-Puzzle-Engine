@@ -1,5 +1,5 @@
-play: words.c playWords.c
-	gcc -o play words.c playWords.c
+playWords: words.c playWords.c
+	gcc -o playWords words.c playWords.c
 playtest: playWords.c
 	gcc -o playtest --coverage playWords.c
 checkletter: checkletter.c

@@ -1,12 +1,18 @@
-# Words Game
+# Assignment: The Team Assignment
 
-Purpose: To implement a game, inspired by New Yorks Time game, Wordle. 
 
-Names:
-Sriha Kanthasamy, 400571386, sriha-k
-Michael Mondaini, 400591695, SharkieBite 
-Sabrina Leung, 400575507, BrinaLeung 
-Axell Panganiban, 400588161, axell8560
+**Name:** Michael Mondaini, Sriha Kanthasamy, Sabrina Leung, Axell Panganiban
+**Date:** December 3rd, 2025
+**Course:** SFWRENG 2XC3 - Software Development Basics
 
-Class: SFWRENG 2XC3: Software Development Basics 
-Due Date: December 3, 2025
+---------------------------------------------------------
+
+This repository contains a Linux command line utility named `playWords`, written in C, that is based on the New York Times game Wordle. The game will start with the default 5 letter word and an amount of guesses per difficulty. The game starts off with the user in located in the main menu screen, being able to choose to play the game based on a difficulty. The user will then be able to guess a word according to the amount of letters the current level is set towards. Depending on the difficulty, there will be a set amount of guesses the user gets. After a round ends successfully, the user will be able to decide to play again and the user will be upgraded to a higher level, which is a longer length of a word. 
+
+## Functionality of the program:
+- Outputs the welcome and main menu screen for the user to interact with, `playWords`
+- Outputs information about the program's syntax, `playWords --help`
+
+## Files in the repository:
+- `words.c`, contains the main program that the user interacts with from the command line. This file is coded in C.
+- `.github/workflows/build.yml`, compiles the program on every push to ensure good working of the program and its files.
