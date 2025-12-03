@@ -16,8 +16,12 @@ This repository contains a Linux command line utility named `playWords`, written
 
 ## Functionality of the program:
 - Outputs the welcome and main menu screen for the user to interact with, `playWords`
-- Outputs information about the program's syntax, `playWords --help`
+- Outputs only the main menu screen for the user to interact with, `playWords --w`
 
 ## Files in the repository:
-- `words.c`, contains the main program that the user interacts with from the command line. This file is coded in C.
+- `words.c`, contains the user interface that the user interacts with from the command line. This file is coded in C.
+- `main.c`, contains the main program that calls the needed functions, with the proper flags. This file is coded in C.
+- `checkletter.c`, contains the the functions for checking a letter placement. This file is coded in C.
+- `checkWord.c`, contains the the functions for checking a word placement. This file is coded in C.
+- `chooseWord.c`, contains the the functions getting a word to play the game. This file is coded in C.
 - `.github/workflows/build.yml`, compiles the program on every push to ensure good working of the program and its files.
