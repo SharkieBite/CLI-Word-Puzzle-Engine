@@ -167,6 +167,13 @@ void displayMainMenu() {
             //Calls the user main menu function again to revert back
             displayMainMenu();
         }
+
+        //Defaults to this statement if the user has selected a invalid selection
+        else {
+
+            //Calls the display usage function to display an error message to the user
+            displayUsage("Error: Incorrect menu selection", false);
+        }
     }
 
     //Determines if the user's menu selection input has selected option three
