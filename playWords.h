@@ -13,3 +13,4 @@ void getUserDifficulty();
 void displayMainMenu();
 void playGame(int userAttempts);
 void displayUsage(const char *errorMessage, bool displayUsage);
+void displayWelcome();

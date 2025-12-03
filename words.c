@@ -396,10 +396,3 @@ void displayUsage(const char *errorMessage, bool displayUsage) {
     //Exits the program with a failure
     exit(EXIT_FAILURE);
 }
-
-//Defines the main function, that the user uses
-int main(int argc, char *argv[]) {
-
-    //Calls the welcome function when the program is lanuched
-    displayWelcome();
-}

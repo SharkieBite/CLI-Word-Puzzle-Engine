@@ -83,58 +83,156 @@ test() {
 # EXAMPLE TEST CASES
 ##########################################
 
-#invalid level
-test './playtest' 1 '4\n5\n' 'Enter wordle size between 5 and 8 letters' 'Invalid word size'
-test './playtest' 1 '5 -5' 'Enter wordle size between 5 and 8 letters
-Enter number of attempts you have (1-10)' 'Invalid number of attempts'
-test './playtest' 1 '' 'Enter wordle size between 5 and 8 letters' 'Invalid entry'
-test './playtest' 1 '5' 'Enter wordle size between 5 and 8 letters
-Enter number of attempts you have (1-10)' 'Invalid entry'
-test './playtest' 0 '5 1' 'Enter wordle size between 5 and 8 letters
-Enter number of attempts you have (1-10)
-Enter guess
-Answer was' 'test'
+#Test Case 1: Multi-Line [Failure]
+test './playtest -w' 1 '5' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Start Game
+[34m[2][0m: View Game Credits
+[34m[3][0m: --help
+[34m[4][0m: Quit' 'Error: Incorrect menu selection'
 
+#Test Case 2: Multi-Line [Failure]
+test './playtest -w' 1 '1 5' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Start Game
+[34m[2][0m: View Game Credits
+[34m[3][0m: --help
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mSelect Difficulty      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Easy Mode
+[34m[2][0m: Medium Mode
+[34m[3][0m: Hard Mode
+[34m[4][0m: Quit' 'Error: Incorrect menu selection'
 
-test './playtest' 0 '5 1 aljdklasjdlkasj hello' 'Enter wordle size between 5 and 8 letters
-Enter number of attempts you have (1-10)
-Enter guess
-Invalid word. Try again
-hello
-You are out of attempts
-Answer was' 'test'
-test './playtest' 0 '6 1 aloha' 'Enter wordle size between 5 and 8 letters
-Enter number of attempts you have (1-10)
-Enter guess
-Invalid word. Try again
-aloha
-You are out of attempts
-Answer was' 'test'
-test './playtest' 0 '7 1 players' 'Enter wordle size between 5 and 8 letters
-Enter number of attempts you have (1-10)
-Enter guess
-Invalid word. Try again
-players
-You are out of attempts
-Answer was' 'test'
-test './playtest' 0 '8 1 absolute' 'Enter wordle size between 5 and 8 letters
-Enter number of attempts you have (1-10)
-Enter guess
-Invalid word. Try again
-absolute
-You are out of attempts
-Answer was' 'test'
-test './playtest --help' 0 '' 'Usage: Help Function
-Welcome to Words, a level-based guessing game.
-You will:
-  - Enter a word size between 5 and 8 letters.
-  - Enter the number of attempts you prefer (1–10).
-  - Guess words of the correct length.
-  - Words must exist in the dictionary.
-  - Colours:
-       Green  = correct letter and position
-       Yellow = letter exists but wrong position in word
-       Red    = letter does not exist in word' ''
+#Test Case 3: Multi-Line Long Word Easy Difficulty [Failure]
+test './playtest -w' 1 '1 1 longggggggword' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Start Game
+[34m[2][0m: View Game Credits
+[34m[3][0m: --help
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mSelect Difficulty      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Easy Mode
+[34m[2][0m: Medium Mode
+[34m[3][0m: Hard Mode
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mLevel 1      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[Level][0m: 1 [90m|[0m [34m[Word Length][0m: 5 [90m|[0m [34m[Attempts Left][0m: 8
+User Guess: Invalid word. Try again.
+[34m[Level][0m: 1 [90m|[0m [34m[Word Length][0m: 5 [90m|[0m [34m[Attempts Left][0m: 8
+User Guess: ' ''
+
+#Test Case 4: Multi-Line Short Word Easy Difficulty [Failure]
+test './playtest -w' 1 '1 1 hi' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Start Game
+[34m[2][0m: View Game Credits
+[34m[3][0m: --help
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mSelect Difficulty      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Easy Mode
+[34m[2][0m: Medium Mode
+[34m[3][0m: Hard Mode
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mLevel 1      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[Level][0m: 1 [90m|[0m [34m[Word Length][0m: 5 [90m|[0m [34m[Attempts Left][0m: 8
+User Guess: Invalid word. Try again.
+[34m[Level][0m: 1 [90m|[0m [34m[Word Length][0m: 5 [90m|[0m [34m[Attempts Left][0m: 8
+User Guess: ' ''
+
+#Test Case 5: Multi-Line Long Word Medium Difficulty [Failure]
+test './playtest -w' 1 '1 2 longggggggggg' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Start Game
+[34m[2][0m: View Game Credits
+[34m[3][0m: --help
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mSelect Difficulty      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Easy Mode
+[34m[2][0m: Medium Mode
+[34m[3][0m: Hard Mode
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mLevel 1      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[Level][0m: 1 [90m|[0m [34m[Word Length][0m: 5 [90m|[0m [34m[Attempts Left][0m: 6
+User Guess: Invalid word. Try again.
+[34m[Level][0m: 1 [90m|[0m [34m[Word Length][0m: 5 [90m|[0m [34m[Attempts Left][0m: 6
+User Guess: ' ''
+
+#Test Case 6: Multi-Line Long Word Hard Difficulty [Failure]
+test './playtest -w' 1 '1 3 longggggggggg' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Start Game
+[34m[2][0m: View Game Credits
+[34m[3][0m: --help
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mSelect Difficulty      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Easy Mode
+[34m[2][0m: Medium Mode
+[34m[3][0m: Hard Mode
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mLevel 1      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[Level][0m: 1 [90m|[0m [34m[Word Length][0m: 5 [90m|[0m [34m[Attempts Left][0m: 4
+User Guess: Invalid word. Try again.
+[34m[Level][0m: 1 [90m|[0m [34m[Word Length][0m: 5 [90m|[0m [34m[Attempts Left][0m: 4
+User Guess: ' ''
+
+#Test Case 7: Multi-Line Quit [Success]
+test './playtest -w' 1 '1 4' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Start Game
+[34m[2][0m: View Game Credits
+[34m[3][0m: --help
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mSelect Difficulty      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Easy Mode
+[34m[2][0m: Medium Mode
+[34m[3][0m: Hard Mode
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+Quitting Game.' ''
+
+#Test Case 8: Multi-Line Quit [Success]
+test './playtest -w' 1 '4' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Start Game
+[34m[2][0m: View Game Credits
+[34m[3][0m: --help
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+Quitting Game.' ''
+
+#Test Case : Multi-Line Credits [Success]
+test './playtest -w' 1 '2' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+[34m[1][0m: Start Game
+[34m[2][0m: View Game Credits
+[34m[3][0m: --help
+[34m[4][0m: Quit
+[90m|[0m     [1m[37mCredits      [0m[90m|[0m
+━━━━━━━━━━━━━━━━━━━━━━[0m
+Team S.A.M.S:
+[34mMichael Mondaini[0m
+[34mSriha Kanthasamy[0m
+[34mSabrina Leung[0m
+[34mAxell Panganiban[0m
+
+[34m[1][0m: Back to Main Menu' ''
+
 
 #return code
 exit $fails
+
+
+
