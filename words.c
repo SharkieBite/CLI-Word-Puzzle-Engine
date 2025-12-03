@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "playWords.h"
+#include "words.h"
 
 //Defines a function which handles with outputting welcome screen, returning nothing
 void displayWelcome() {
