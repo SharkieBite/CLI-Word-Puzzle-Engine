@@ -225,7 +225,7 @@ void playGame(int userAttempts) {
             if (scanf("%s", guess) != 1) {
 
                 //Breaks out of the while loop
-                break;
+                exit(1);
             }
             
             //Defines a for loop that loops through each letter in the guess word
