@@ -145,6 +145,11 @@ void displayMainMenu() {
         puts("      [2] Medium                      Starts level 1 on medium");
         puts("      [3] Hard                        Starts level 1 on hard");
         puts(" ");
+        puts("Based on difficulty selected, guess a word of the correct length");
+        puts("Colours: "):
+        puts("      Green       -> correct letter, correct placement");
+        puts("      Yellow      -> correct letter, wrong placement");
+        puts("      Red         -> letter does not exist in word");
 
         //Outputs the back to main menu option to the user
         printf("\x1b[34m[1]\x1b[0m: Back to Main Menu\n");

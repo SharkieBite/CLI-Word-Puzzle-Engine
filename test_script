@@ -84,7 +84,10 @@ test() {
 ##########################################
 
 #invalid level
-test './playtest' 1 '4\n5\n' 'Enter wordle size between 5 and 8 letters' 'Invalid word size'
+test './playWords' 1 '4\n5\n' 'Enter wordle size between 5 and 8 letters' 'Invalid word size'
+
+
+
 test './playtest' 1 '5 -5' 'Enter wordle size between 5 and 8 letters
 Enter number of attempts you have (1-10)' 'Invalid number of attempts'
 test './playtest' 1 '' 'Enter wordle size between 5 and 8 letters' 'Invalid entry'
