@@ -83,7 +83,7 @@ void displayMainMenu() {
     //Determines if the user's menu selection input has encountered an error
     if (scanf("%d", &userMenuSelection) != 1) {
 
-        printf("ERROR\n");
+        //Exits the program with code one
         exit(1);
     }
 
@@ -116,6 +116,13 @@ void displayMainMenu() {
             //Calls the user main menu function again to revert back
             displayMainMenu();
         }
+
+        //Defaults to this statement if the user has selected a invalid selection
+        else {
+
+            //Calls the display usage function to display an error message to the user
+            displayUsage("Error: Incorrect menu selection", false);
+        }
     }
     
     //Determines if the user's menu selection input has selected option three
@@ -126,6 +133,13 @@ void displayMainMenu() {
         
         //Exits the program with code one
         exit(1);
+    }
+
+    //Defaults to this statement if the user has selected a invalid selection
+    else {
+
+        //Calls the display usage function to display an error message to the user
+        displayUsage("Error: Incorrect menu selection", false);
     }
 }
 
@@ -143,8 +157,8 @@ void getUserDifficulty() {
     //Determines if the user's menu selection input has encountered an error
     if (scanf("%d", &userDifficultySelection) != 1) {
 
-            printf("ERROR\n");
-            exit(1);
+        //Exits the program with code one
+         exit(1);
     }
 
     //Determines if the user's menu selection input has selected option one
@@ -176,6 +190,13 @@ void getUserDifficulty() {
         
         //Exits the program with code one
         exit(1);
+    }
+
+    //Defaults to this statement if the user has selected a invalid selection
+    else {
+
+        //Calls the display usage function to display an error message to the user
+        displayUsage("Error: Incorrect menu selection", false);
     }
 }
 
@@ -224,7 +245,7 @@ void playGame(int userAttempts) {
             //Determines if the user's menu selection input has encountered an error
             if (scanf("%s", guess) != 1) {
 
-                //Breaks out of the while loop
+                //Exits the program with code one
                 exit(1);
             }
             
@@ -262,7 +283,7 @@ void playGame(int userAttempts) {
                     //Determines if the user's menu selection input has encountered an error
                     if (scanf("%d", &userNextLevelSelection) != 1) {
 
-                        printf("ERROR\n");
+                        //Exits the program with code one
                         exit(1);
                     }
 
@@ -280,6 +301,7 @@ void playGame(int userAttempts) {
                     //Defaults to this statement if a selection is not made
                     else {
 
+                        //Exits the program with code one
                         exit(1);
                     }
                 }
@@ -306,6 +328,27 @@ void playGame(int userAttempts) {
 
     //Outputs that all levels have been beat
     printf("You beat all levels\n");
+}
+
+//Defines a function which handles with outputting errors to standard error, taking two parameter input to function
+void displayUsage(const char *errorMessage, bool displayUsage) {
+
+    //Determines if the error message is not empty to output the message
+    if (!(strcmp(errorMessage,"") == 0)) {
+
+        //Outputs to the user the given error message given from parameters, to standard error
+        fprintf(stderr, "%s\n", errorMessage);
+    }
+
+    //Determines if the usage error is needed to be outputted, using the value given in the parameters
+    if (displayUsage) {
+
+        //Outputs to the user the given usage message in parameters, to standard error
+        fprintf(stderr, "Usage: playWords\n");
+    }
+
+    //Exits the program with a failure
+    exit(EXIT_FAILURE);
 }
 
 //Defines the main function, that the user uses

@@ -12,3 +12,4 @@ bool isNewGuess(const char *word, char oldGuesses[][MAX_WORD_LENGTH], int guessC
 void getUserDifficulty();
 void displayMainMenu();
 void playGame(int userAttempts);
+void displayUsage(const char *errorMessage, bool displayUsage);
