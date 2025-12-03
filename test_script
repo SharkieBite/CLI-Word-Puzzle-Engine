@@ -83,7 +83,6 @@ test() {
 # EXAMPLE TEST CASES
 ##########################################
 
-<<<<<<< HEAD
 #Test Case 1: Multi-Line [Failure]
 test './playtest -w' 1 '5' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
 ━━━━━━━━━━━━━━━━━━━━━━[0m
@@ -91,22 +90,6 @@ test './playtest -w' 1 '5' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[
 [34m[2][0m: View Game Credits
 [34m[3][0m: --help
 [34m[4][0m: Quit' 'Error: Incorrect menu selection'
-=======
-#invalid level
-test './playWords' 1 '4\n5\n' 'Enter wordle size between 5 and 8 letters' 'Invalid word size'
-
-
-
-test './playtest' 1 '5 -5' 'Enter wordle size between 5 and 8 letters
-Enter number of attempts you have (1-10)' 'Invalid number of attempts'
-test './playtest' 1 '' 'Enter wordle size between 5 and 8 letters' 'Invalid entry'
-test './playtest' 1 '5' 'Enter wordle size between 5 and 8 letters
-Enter number of attempts you have (1-10)' 'Invalid entry'
-test './playtest' 0 '5 1' 'Enter wordle size between 5 and 8 letters
-Enter number of attempts you have (1-10)
-Enter guess
-Answer was' 'test'
->>>>>>> 0e8c713ddab08e55696df342a485b2d2d7da9257
 
 #Test Case 2: Multi-Line [Failure]
 test './playtest -w' 1 '1 5' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
@@ -230,7 +213,7 @@ test './playtest -w' 1 '4' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[
 ━━━━━━━━━━━━━━━━━━━━━━[0m
 Quitting Game.' ''
 
-#Test Case : Multi-Line Credits [Success]
+#Test Case #9: Multi-Line Credits [Success]
 test './playtest -w' 1 '2' '[90m|[0m     [1m[37mMain Menu      [0m[90m|[0m
 ━━━━━━━━━━━━━━━━━━━━━━[0m
 [34m[1][0m: Start Game
@@ -247,9 +230,5 @@ Team S.A.M.S:
 
 [34m[1][0m: Back to Main Menu' ''
 
-
 #return code
 exit $fails
-
-
-
