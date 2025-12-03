@@ -11,39 +11,6 @@
 int help();
 int checkLetter(char *guess, char *answer, int *attempts, int level);
 
-/* Main method
-*
-* Parameters:
-* None
-*
-* Runs checkLetter function with hello as the answer
-*/
-
-int main(int argc, char *input[]) { //Main method
-    char *answer = "hello";
-    char *guess;
-    int lives = 5;
-    int *attempts = &lives;
-    int level = 5;
-
-    if (argc >= 2 && strcmp(input[1], "--help") == 0) {
-        help();
-        return 0;
-    }
-    puts("Enter guess");
-    while (1) {
-        if (scanf("%s", guess) != 1) {
-            printf("Answer was \033[32m%s\033[0m\n", answer);
-            return 0;
-        }
-        checkLetter(guess, answer, attempts, level);
-        if (*attempts == 0) {
-            return 0;
-        }
-    }
-    return 0;
-}
-
 /* CheckLetter function
 *
 * Parameters:
@@ -83,8 +50,8 @@ int checkLetter(char *guess, char *answer, int *attempts, int level) { //Method 
         exit(0);
     }
     else if (*attempts == 0) {  //If user runs out of attempts
-        puts("You are out of attempts");
-        printf("Answer was \033[32m%s\033[0m\n", answer);
+        // puts("You are out of attempts");
+        // printf("Answer was \033[32m%s\033[0m\n", answer);
         return 0;
     }
 }
