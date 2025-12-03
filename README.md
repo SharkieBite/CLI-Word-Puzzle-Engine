@@ -16,7 +16,7 @@ This repository contains a Linux command line utility named `playWords`, written
 
 ## Functionality of the program:
 - Outputs the welcome and main menu screen for the user to interact with, `playWords`
-- Outputs only the main menu screen for the user to interact with, `playWords --w`
+- Outputs only the main menu screen for the user to interact with, `playWords -w`
 
 ## Files in the repository:
 - `words.c`, contains the user interface that the user interacts with from the command line. This file is coded in C.
