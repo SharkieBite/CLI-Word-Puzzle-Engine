@@ -1,7 +1,12 @@
 # Assignment: The Team Assignment
 
 
-**Name:** Michael Mondaini, Sriha Kanthasamy, Sabrina Leung, Axell Panganiban
+**Names:** 
+- Michael Mondaini [@SharkieBite](https://www.github.com/SharkieBite)
+- Sriha Kanthasamy [@sriha-k](https://www.github.com/sriha-k)
+- Sabrina Leung [@BrinaLeung](https://www.github.com/BrinaLeung)
+- Axell Panganiban [@axell8560](https://www.github.com/axell8560)
+
 **Date:** December 3rd, 2025
 **Course:** SFWRENG 2XC3 - Software Development Basics
 
