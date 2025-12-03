@@ -1,7 +1,7 @@
 //Imports the necessary modules needed for the program
 #include <stdio.h>
 #include <string.h>
-#include "playWords.h"
+#include "words.h"
 
 //Defines the main function, that the user uses
 int main(int argc, char *argv[]) {
