@@ -1,4 +1,4 @@
-# Assignment: The Team Assignment
+# CLI Word Puzzle Engine
 
 
 **Names:** 
@@ -8,8 +8,6 @@
 - Axell Panganiban [@axell8560](https://www.github.com/axell8560)
 
 **Date:** December 3rd, 2025
-**Course:** SFWRENG 2XC3 - Software Development Basics
-
 ---------------------------------------------------------
 
 This repository contains a Linux command line utility named `playWords`, written in C, that is based on the New York Times game Wordle. The game will start with the default 5 letter word and an amount of guesses per difficulty. The game starts off with the user in located in the main menu screen, being able to choose to play the game based on a difficulty. The user will then be able to guess a word according to the amount of letters the current level is set towards. Depending on the difficulty, there will be a set amount of guesses the user gets. After a round ends successfully, the user will be able to decide to play again and the user will be upgraded to a higher level, which is a longer length of a word. 
