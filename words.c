@@ -1,8 +1,3 @@
-/* Michael Mondaini, 400591695, December 3rd, 2025
-*
-* Description: Contains the program that the user interacts with from the command line and deals with guessing each word, and playing the game. This file is coded in C.
-*/
-
 //Imports the necessary modules needed for the program
 #include <stdbool.h>
 #include <stdlib.h>
