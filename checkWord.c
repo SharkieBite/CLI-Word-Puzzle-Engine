@@ -1,9 +1,3 @@
-/*
-Sriha Kanthasamy
-400571386
-Purpose: To implement a code to check if the word that the user enters is a word in the text file.
-*/
-
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
