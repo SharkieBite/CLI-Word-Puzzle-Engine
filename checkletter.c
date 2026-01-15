@@ -1,9 +1,3 @@
-/* Axell Panganiban 400588161 Monday December 1 2025
-*
-* This code compares each letter in guess to answer and prints the letters out in different colours depending
-* on if the letter in the right spot, in the wrong spot, or not in the word at all
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
