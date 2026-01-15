@@ -1,9 +1,3 @@
-/*
-Sabrina Leung 
-400575507
-Purpose: code to choose the a word from the appropiate file for the user to guess
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
