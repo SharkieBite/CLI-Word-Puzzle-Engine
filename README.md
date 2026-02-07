@@ -1,11 +1,6 @@
 # CLI Word Puzzle Engine
 
 
-**Names:** 
-- Michael Mondaini [@SharkieBite](https://www.github.com/SharkieBite)
-- Sriha Kanthasamy [@sriha-k](https://www.github.com/sriha-k)
-- Sabrina Leung [@BrinaLeung](https://www.github.com/BrinaLeung)
-- Axell Panganiban [@axell8560](https://www.github.com/axell8560)
 
 **Date:** December 3rd, 2025
 ---------------------------------------------------------
